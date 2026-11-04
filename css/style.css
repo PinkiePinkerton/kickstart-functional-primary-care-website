@@ -1,0 +1,4001 @@
+/* ==========================================================================
+   KICKSTART FUNCTIONAL PRIMARY CARE - MASTER STYLESHEET
+   1:1 Pixel-Accurate Clone of kickstartprimarycare.com
+   Clean, semantic HTML5/CSS3 matching Elementor Kit 6, Page 20, Header 1943, Footer 77.
+   ========================================================================== */
+
+/* --- 1. CSS VARIABLES & DESIGN TOKENS --- */
+:root {
+  /* Elementor Global Colors */
+  --e-global-color-primary-green: #4F6841;       /* --e-global-color-6cdedab */
+  --e-global-color-primary-green-light: #6E9D54; /* Button radial top green */
+  --e-global-color-accent-green: #61CE70;        /* --e-global-color-accent */
+  --e-global-color-navy: #1A2B45;                /* --e-global-color-946bef4 */
+  --e-global-color-navy-dark: #0F1929;           /* Deep charcoal navy */
+  --e-global-color-navy-slate: #233A5D;          /* Medium slate navy */
+  --e-global-color-gold: #C5A059;                /* --e-global-color-8e25855 */
+  --e-global-color-gold-light: #D6B67D;          /* Review section radial center */
+  --e-global-color-gold-dark: #9C7A3D;           /* Review section radial edge */
+  --e-global-color-white: #FFFFFF;               /* --e-global-color-9a727ec */
+  --e-global-color-light-gray: #F8F9FA;          /* --e-global-color-63ef914 */
+  --e-global-color-muted-blue: #747F90;          /* Hero "Finally." subtitle */
+  --e-global-color-text-body: #54595F;           /* --e-global-color-secondary */
+  --e-global-color-card-desc: #DCDBDB;           /* Method card description */
+  --e-global-color-divider-muted: #7A7A7A7A;     /* Callout internal divider */
+
+  /* Typography */
+  --font-family-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-faq: 'Rubik', 'Poppins', sans-serif;
+
+  /* Dimensions & Spacing */
+  --header-height: 90px;
+  --container-max-width: 1300px;
+  --container-wide-width: 1400px;
+  --section-padding-desktop: 120px 0;
+  --section-padding-mobile: 50px 0;
+
+  /* Transitions */
+  --transition-default: 0.25s ease-in-out;
+}
+
+/* --- 2. RESET & GLOBAL BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  font-family: var(--font-family-primary);
+  background-color: var(--e-global-color-white);
+  color: var(--e-global-color-text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: var(--header-height);
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-default), background var(--transition-default), border-color var(--transition-default);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  transition: all var(--transition-default);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* --- 3. COLOR & TEXT HELPERS --- */
+.gold-text {
+  color: var(--e-global-color-gold) !important;
+}
+
+.navy-text {
+  color: var(--e-global-color-navy) !important;
+}
+
+.black-text {
+  color: #000000 !important;
+}
+
+.highlight-phrase {
+  color: var(--e-global-color-navy);
+  font-weight: 700;
+}
+
+/* --- 4. SIGNATURE BUTTONS (1:1 Elementor Button Styling) --- */
+.btn-signature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  text-shadow: 0 0 8px #000000;
+  background-image: radial-gradient(at center center, #6E9D54 0%, var(--e-global-color-primary-green) 100%);
+  box-shadow: 0 8px 50px 0 rgba(16, 185, 129, 0.35);
+  border-radius: 5px;
+  padding: 24px 36px;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.btn-signature svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-signature:hover,
+.btn-signature:focus {
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  background-image: radial-gradient(at center center, var(--e-global-color-primary-green) 0%, #6E9D54 100%);
+  box-shadow: 0 8px 50px 10px rgba(97, 206, 112, 0.35);
+  transform: translateY(-4px);
+}
+
+/* Header Phone Button (107401d) */
+.btn-header-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--e-global-color-primary-green);
+  fill: var(--e-global-color-primary-green);
+  background-color: var(--e-global-color-white);
+  border: 1px solid var(--e-global-color-primary-green);
+  border-radius: 5px;
+  padding: 14px 12px;
+  white-space: nowrap;
+}
+
+.btn-header-phone svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-header-phone:hover,
+.btn-header-phone:focus {
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  background-image: radial-gradient(at center center, #4F6841 0%, var(--e-global-color-accent-green) 100%);
+  border-color: var(--e-global-color-primary-green);
+}
+
+/* Header New Patient Appointment Button (4bf45d6) */
+.btn-header-schedule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  text-shadow: 0 0 8px #000000;
+  background-image: radial-gradient(at center center, var(--e-global-color-accent-green) 0%, var(--e-global-color-primary-green) 100%);
+  box-shadow: 0 8px 40px 0 rgba(16, 185, 129, 0.35);
+  border: 1px solid #FFFFFF26;
+  border-radius: 5px;
+  padding: 15px 20px;
+  white-space: nowrap;
+}
+
+.btn-header-schedule svg {
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-header-schedule:hover,
+.btn-header-schedule:focus {
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  background-image: radial-gradient(at center center, var(--e-global-color-primary-green) 0%, var(--e-global-color-accent-green) 100%);
+  border-color: var(--e-global-color-primary-green);
+}
+
+/* --- 5. SITE HEADER (Elementor 1943) --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--e-global-color-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-wide-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.site-logo img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--e-global-color-primary-green);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 14px 10px;
+}
+
+.nav-link.active,
+.nav-link:hover,
+.nav-item:hover > .nav-link {
+  color: var(--e-global-color-navy);
+}
+
+.nav-link svg {
+  transition: transform var(--transition-default);
+}
+
+.nav-item:hover > .nav-link svg {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Submenu (b15b37f) */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background-color: var(--e-global-color-primary-green);
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all var(--transition-default);
+  z-index: 1100;
+  overflow: hidden;
+}
+
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li:not(:last-child) {
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 16px 12px;
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--e-global-color-white);
+}
+
+.dropdown-link:hover {
+  color: var(--e-global-color-gold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  color: var(--e-global-color-primary-green);
+  fill: var(--e-global-color-primary-green);
+}
+
+/* --- 6. HERO SECTION (Elementor 538f521) --- */
+.hero-section {
+  position: relative;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 50px 0;
+  background-color: var(--e-global-color-navy);
+  background-image: url('../assets/images/first-frame-of-kickstart-banner-video_1.1.1.jpg');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--e-global-color-navy);
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.hero-content {
+  width: 50.579%;
+  padding: 40px 20px 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title-sub {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--e-global-color-muted-blue);
+  line-height: 1.1;
+  margin-bottom: -15px;
+}
+
+.hero-title-main {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--e-global-color-white);
+  line-height: 1.1;
+  margin-bottom: -15px;
+}
+
+.hero-title-highlight {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--e-global-color-gold);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-lead {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.hero-lead strong {
+  font-weight: 700;
+}
+
+.hero-cta-wrapper {
+  margin: 10px 0 18px 0;
+}
+
+.hero-trust-badge {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+}
+
+.hero-image-wrapper {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Exact 3D Green-Glow Shadow & Border from Elementor c254ccf */
+.hero-image {
+  width: 100%;
+  max-width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF29;
+  border-radius: 40px;
+  box-shadow: 0 0 50px 0 #4F6841;
+  object-fit: cover;
+}
+
+/* --- 7. SICK-CARE TRAP SECTION (Elementor 1f72d24) --- */
+.sick-care-section {
+  background-color: var(--e-global-color-white);
+  padding: var(--section-padding-desktop);
+}
+
+.sick-care-column {
+  width: 68%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sick-care-heading {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.sick-care-intro {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  margin-bottom: 15px;
+}
+
+.sick-care-intro p {
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+
+.sick-care-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+/* Exact Elementor 26bf8f0 / 9cad191 / a85f966 Callout Box */
+.sick-care-callout {
+  border-left: 5px solid var(--e-global-color-primary-green);
+  padding: 5px 0 5px 20px;
+  margin-bottom: 10px;
+}
+
+.sick-care-callout h5 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--e-global-color-navy);
+  margin-bottom: 8px;
+}
+
+.sick-care-callout p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+/* Exact Elementor 1d0ed0c Bottom Stamp */
+.sick-care-stamp {
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--e-global-color-primary-green);
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* --- 8. THE KICKSTART METHOD SECTION (Elementor bc2a9a5) --- */
+.method-section {
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  padding: var(--section-padding-desktop);
+  color: var(--e-global-color-white);
+}
+
+.method-section-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-white);
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Exact Elementor 7e136f0 Card Styling */
+.method-card {
+  background-color: var(--e-global-color-navy);
+  border-bottom: 5px solid var(--e-global-color-primary-green);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.method-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+.method-icon-circle {
+  width: 66px;
+  height: 66px;
+  background-color: var(--e-global-color-primary-green);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+}
+
+.method-icon-circle svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--e-global-color-white);
+}
+
+.method-card h3 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-global-color-gold);
+  line-height: 1.35;
+}
+
+.method-card p {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--e-global-color-card-desc);
+}
+
+.method-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--e-global-color-primary-green);
+  margin: 18px 0;
+}
+
+.method-quote {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  color: var(--e-global-color-primary-green);
+  line-height: 1.55;
+}
+
+/* --- 9. YOUR PARTNER IN TRUE HEALTH / DR. DREW (Elementor bcab10e) --- */
+.doctor-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: var(--section-padding-desktop);
+}
+
+.doctor-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.doctor-image-col {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Exact 3D Green-Glow Shadow & Border from Elementor 6d7ad3b */
+.doctor-image {
+  width: 95%;
+  max-width: 95%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FFFFFF29;
+  border-radius: 40px;
+  box-shadow: 0 0 50px 0 #4F6841;
+  object-fit: cover;
+}
+
+.doctor-content-col {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+}
+
+.doctor-heading {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  margin-bottom: 20px;
+}
+
+/* Exact Elementor 5ce0456 Left-Green-Border Callout Box */
+.doctor-callout-box {
+  border-left: 5px solid var(--e-global-color-primary-green);
+  padding: 5px 0 5px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doctor-quote-text {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--e-global-color-navy);
+  line-height: 1.6;
+}
+
+.doctor-callout-divider {
+  width: 98%;
+  height: 1px;
+  background-color: var(--e-global-color-divider-muted);
+  margin: 2px 0;
+}
+
+.doctor-barbara-quote {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-gold);
+  line-height: 1.5;
+}
+
+.doctor-body-text p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.doctor-body-text a {
+  color: var(--e-global-color-primary-green);
+  text-decoration: underline;
+}
+
+/* --- 10. CONDITIONS WE HELP YOU OVERCOME (Elementor b592cc7) --- */
+.conditions-section {
+  background-color: var(--e-global-color-white);
+  padding: var(--section-padding-desktop);
+}
+
+.conditions-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 30px;
+}
+
+.conditions-header h1 {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  margin-bottom: 15px;
+}
+
+.conditions-header p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+/* Exact Elementor c9a84f8 Card Styling */
+.condition-card {
+  background-color: var(--e-global-color-white);
+  border: 1px solid var(--e-global-color-light-gray);
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform var(--transition-default), box-shadow var(--transition-default);
+}
+
+.condition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.condition-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--e-global-color-primary-green);
+  fill: var(--e-global-color-primary-green);
+  flex-shrink: 0;
+}
+
+.condition-text {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.4;
+}
+
+.conditions-bottom-callout {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* --- 11. RECLAIM YOUR HEALTH IN 3 STEPS (Elementor 216c422) --- */
+.steps-section {
+  position: relative;
+  background-color: var(--e-global-color-navy);
+  background-image: url('../assets/images/Dr-Drew-Collaborating-with-Patient-at-kickStart-Functional-Primary-Care-scaled.jpeg');
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: var(--section-padding-desktop);
+}
+
+.steps-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(26, 43, 69, 0.85);
+}
+
+.steps-container {
+  position: relative;
+  z-index: 2;
+}
+
+.steps-section-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-white);
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Exact Elementor 85e1c59 / ced5ca8 / 676a94e Step Card */
+.step-card {
+  background-color: var(--e-global-color-white);
+  border-radius: 10px;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.step-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--e-global-color-white);
+  fill: var(--e-global-color-white);
+  margin-bottom: 12px;
+}
+
+.step-icon-circle svg {
+  height: 30px;
+  width: auto;
+  fill: var(--e-global-color-white);
+}
+
+.step-navy-bg {
+  background-color: var(--e-global-color-navy);
+}
+
+.step-green-bg {
+  background-color: var(--e-global-color-primary-green);
+}
+
+.step-gold-bg {
+  background-color: var(--e-global-color-gold);
+}
+
+.step-navy-text {
+  color: var(--e-global-color-navy) !important;
+}
+
+.step-green-text {
+  color: var(--e-global-color-primary-green) !important;
+}
+
+.step-gold-text {
+  color: var(--e-global-color-gold) !important;
+}
+
+.step-number {
+  font-family: var(--font-family-primary);
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.step-heading {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.step-card p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+/* --- 12. METABOLIC BREAKTHROUGH: PIR SECTION (Elementor 31de845) --- */
+.pir-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: var(--section-padding-desktop);
+}
+
+.pir-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.pir-left-col {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Exact Elementor f93a44e Badge */
+.pir-protocol-badge {
+  background-color: var(--e-global-color-primary-green);
+  color: var(--e-global-color-gold);
+  padding: 10px 14px;
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.8px;
+  margin-bottom: 15px;
+}
+
+.pir-heading-navy {
+  font-family: var(--font-family-primary);
+  font-size: 45px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  line-height: 1.15;
+}
+
+.pir-heading-green {
+  font-family: var(--font-family-primary);
+  font-size: 45px;
+  font-weight: 600;
+  color: var(--e-global-color-primary-green);
+  line-height: 1.15;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
+.pir-sublead {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--e-global-color-text-body);
+  margin-bottom: 16px;
+}
+
+.pir-body {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.pir-right-col {
+  width: 45%;
+}
+
+/* Exact Elementor 3ef2ca3 Right Card */
+.pir-right-card {
+  background-color: var(--e-global-color-white);
+  border-left: 5px solid var(--e-global-color-primary-green);
+  border-radius: 10px;
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.pir-right-card h2 {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+}
+
+.pir-right-desc {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-navy);
+  line-height: 1.65;
+}
+
+.pir-right-divider {
+  width: 98%;
+  height: 1px;
+  background-color: var(--e-global-color-divider-muted);
+}
+
+.pir-right-quote {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-navy);
+  line-height: 1.6;
+}
+
+/* --- 13. WHAT YOUR NEIGHBORS ARE SAYING (Elementor 773e8b8) --- */
+.reviews-section {
+  background-image: radial-gradient(at center center, #D6B67D 50%, #9C7A3D 90%);
+  padding: var(--section-padding-desktop);
+}
+
+.reviews-section-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+/* Trustindex Summary Header */
+.ti-widget-header {
+  background-color: var(--e-global-color-white);
+  border-radius: 8px;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.ti-header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ti-clinic-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--e-global-color-primary-green);
+  color: var(--e-global-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.ti-clinic-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--e-global-color-navy);
+}
+
+.ti-clinic-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.ti-stars {
+  color: #F6BB06;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.ti-review-count {
+  font-size: 14px;
+  color: #333333;
+}
+
+.ti-write-btn {
+  background-color: #4285F4;
+  color: var(--e-global-color-white);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+
+.ti-write-btn:hover {
+  background-color: #3367D6;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background-color: var(--e-global-color-white);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.reviewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--e-global-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.reviewer-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.reviewer-source {
+  font-size: 12px;
+  color: #777777;
+}
+
+.google-g-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #4285F4;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-stars {
+  color: #F6BB06;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ti-verified-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #1DA1F2;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* --- 14. FREQUENTLY ASKED QUESTIONS (Elementor ca903d6) --- */
+.faq-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: var(--section-padding-desktop);
+}
+
+.faq-section-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.faq-accordion {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  background-color: var(--e-global-color-white);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.faq-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--e-global-color-white);
+  font-family: var(--font-family-faq);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  text-align: left;
+}
+
+.faq-item.active .faq-header .faq-title {
+  color: var(--e-global-color-gold);
+}
+
+.faq-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--e-global-color-navy);
+  fill: var(--e-global-color-navy);
+  transition: transform var(--transition-default);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+  background-color: var(--e-global-color-white);
+  font-family: var(--font-family-faq);
+  font-size: 16px;
+  color: #333333;
+}
+
+.faq-item.active .faq-body {
+  padding: 0 20px 20px;
+}
+
+.faq-body p {
+  margin-bottom: 12px;
+  line-height: 1.65;
+}
+
+.faq-body p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-body ul {
+  margin: 10px 0 14px 22px;
+}
+
+.faq-body li {
+  margin-bottom: 6px;
+}
+
+.faq-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--e-global-color-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.faq-map-link:hover {
+  text-decoration: underline;
+}
+
+/* --- 15. FINAL CALL TO ACTION (Elementor 6eebf4d) --- */
+.final-cta-section {
+  position: relative;
+  min-height: 600px;
+  background-color: var(--e-global-color-navy);
+  background-image: url('../assets/images/hp-cta.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.final-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--e-global-color-navy);
+  opacity: 0.95;
+}
+
+.final-cta-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta-container h1 {
+  font-family: var(--font-family-primary);
+  font-size: 50px;
+  font-weight: 600;
+  color: var(--e-global-color-white);
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.final-cta-container p {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  max-width: 80%;
+  margin: 0 auto 25px;
+  line-height: 1.6;
+}
+
+/* --- 16. SITE FOOTER (Elementor 77) --- */
+.site-footer {
+  background-color: var(--e-global-color-white);
+}
+
+.footer-top {
+  padding: 40px 20px 30px;
+}
+
+/* Exact Elementor 72550cf Grid: 0.8fr 0.8fr 1.4fr */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 0.8fr 1.4fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.footer-logo-link img {
+  width: 80%;
+  max-width: 240px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.footer-tagline {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  margin-bottom: 18px;
+}
+
+.footer-heading {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  margin-bottom: 10px;
+}
+
+.footer-hours {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.6;
+}
+
+.footer-contact-list {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.footer-contact-list li {
+  margin-bottom: 12px;
+}
+
+.footer-contact-list a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+}
+
+.footer-contact-list svg {
+  fill: var(--e-global-color-primary-green);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-social-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+}
+
+.footer-social-list svg {
+  fill: var(--e-global-color-primary-green);
+  transition: fill 0.3s ease;
+}
+
+.footer-social-list a:hover svg {
+  fill: var(--e-global-color-gold);
+}
+
+.footer-map-wrapper iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: 4px;
+}
+
+/* Bottom Green Bar (628b958) */
+.footer-bottom-bar {
+  background-color: var(--e-global-color-primary-green);
+  padding: 20px 0 35px;
+  color: var(--e-global-color-light-gray);
+}
+
+.footer-bottom-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-policy-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-policy-menu a {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--e-global-color-light-gray);
+  padding: 8px 0;
+}
+
+.footer-policy-menu a:hover {
+  color: var(--e-global-color-gold);
+}
+
+.footer-copyright {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  color: var(--e-global-color-light-gray);
+  text-align: center;
+}
+
+/* --- 17. NEW PATIENT APPOINTMENT MODAL (Hustle / Forminator 2) --- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 25, 41, 0.78);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-default);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background-color: var(--e-global-color-white);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 35px 40px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  transform: translateY(20px);
+  transition: transform var(--transition-default);
+}
+
+.modal-backdrop.is-open .modal-card {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 28px;
+  color: var(--e-global-color-navy);
+  line-height: 1;
+}
+
+.modal-card h3 {
+  font-family: var(--font-family-primary);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  margin-bottom: 5px;
+}
+
+.req {
+  color: #D93025;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: var(--e-global-color-primary-green);
+}
+
+.form-control-file {
+  font-size: 13px;
+  color: var(--e-global-color-text-body);
+}
+
+.form-checkbox-group {
+  margin-bottom: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--e-global-color-text-body);
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  margin-top: 3px;
+}
+
+.form-legal-note {
+  font-size: 11px;
+  color: #6B7280;
+  line-height: 1.45;
+  margin: 10px 0 16px;
+}
+
+.form-legal-note a {
+  color: #0073aa;
+  text-decoration: underline;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--e-global-color-white);
+  background-image: radial-gradient(at center center, #6E9D54 0%, var(--e-global-color-primary-green) 100%);
+  border-radius: 5px;
+  box-shadow: 0 6px 20px rgba(79, 104, 65, 0.35);
+}
+
+.modal-submit-btn:hover {
+  background-image: radial-gradient(at center center, var(--e-global-color-primary-green) 0%, #6E9D54 100%);
+}
+
+.modal-hipaa-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--e-global-color-primary-green);
+}
+
+.modal-hipaa-badge svg {
+  fill: var(--e-global-color-primary-green);
+}
+
+/* --- 18. CONDITION PAGES (Exact 1:1 Elementor 315, 317, 319, 398, 405, 412, 419, 427) --- */
+.cond-hero {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  min-height: 500px;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.cond-hero.cond-hero-pad100 {
+  padding: 100px 0;
+}
+
+.cond-hero.cond-hero-solid-navy {
+  background-image: none;
+  background-color: var(--e-global-color-navy);
+}
+
+.cond-hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cond-hero-subtitle {
+  font-family: var(--font-family-primary);
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-gold);
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto -15px;
+  line-height: 1.25;
+}
+
+.cond-hero-title {
+  font-family: var(--font-family-primary);
+  font-size: 60px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 1.15;
+}
+
+.cond-hero-title.w-100 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cond-hero-img-wrap {
+  width: fit-content;
+  max-width: 100%;
+  margin: 10px auto;
+  padding: 0 7px 0 0;
+  text-align: center;
+}
+
+.cond-hero-img {
+  width: 80%;
+  max-width: 80%;
+  height: auto;
+  border: 1px solid #FFFFFF40;
+  border-radius: 40px;
+  box-shadow: 0 0 60px 10px rgba(16, 185, 129, 0.4);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cond-hero-img.w-100 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.cond-hero-img.w-92 {
+  width: 92%;
+  max-width: 92%;
+}
+
+.cond-hero-img.w-88 {
+  width: 88%;
+  max-width: 88%;
+}
+
+.cond-hero-img.w-70 {
+  width: 70%;
+  max-width: 70%;
+}
+
+/* Section 2: Clinical Perspectives (White Background, 120px 0) */
+.cond-perspectives {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+}
+
+.cond-perspectives-3col {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cond-perspectives-center {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cond-perspectives-2col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cond-perspectives-col50 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cond-eyebrow {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-gold);
+  margin-bottom: -10px;
+  text-align: left;
+}
+
+.cond-perspectives-heading {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.cond-body-text {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.7;
+  text-align: left;
+}
+
+.cond-body-text p {
+  margin-bottom: 16px;
+}
+
+.cond-body-text p:last-child {
+  margin-bottom: 0;
+}
+
+.cond-elevated-card {
+  background-color: var(--e-global-color-white);
+  border-radius: 20px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  text-align: left;
+}
+
+.cond-elevated-card p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.cond-elevated-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Type 2 Diabetes 2-column bottom grid inside Clinical Perspectives */
+.cond-diabetes-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cond-feature-img-green-glow {
+  width: 100%;
+  height: auto;
+  border: 1px solid #FFFFFF29;
+  border-radius: 40px;
+  box-shadow: 0 0 50px 0 #4F6841;
+  display: block;
+  margin: 0 auto;
+}
+
+.cond-feature-img-green-glow.w-80 {
+  width: 80%;
+}
+
+.cond-feature-img-green-glow.w-95 {
+  width: 95%;
+}
+
+/* Section 3: Limitations of the Sick-Care Model */
+.cond-limitations {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.cond-limitations.cond-limitations-solid-navy {
+  background-image: none;
+  background-color: var(--e-global-color-navy);
+}
+
+.cond-limitations-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cond-limitations-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  line-height: 1.25;
+}
+
+.cond-limitations-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.cond-limitations-sub {
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-gold);
+  margin-top: 5px;
+}
+
+.cond-limitations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.cond-limitation-card {
+  background-color: var(--e-global-color-navy);
+  border-bottom: 5px solid var(--e-global-color-primary-green);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cond-limitation-card h3 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-global-color-gold);
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.cond-limitation-card p {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #DCDBDB;
+  margin-bottom: 15px;
+}
+
+.cond-limitation-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--e-global-color-primary-green);
+  margin-top: auto;
+}
+
+/* Section 4: The KickStart Protocol / Difference (Light Gray #F8F9FA, 120px 0) */
+.cond-protocol {
+  background-color: var(--e-global-color-light-gray);
+  padding: 120px 0;
+}
+
+.cond-protocol-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.cond-protocol-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.cond-protocol-right {
+  width: 50%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cond-protocol-sub {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+}
+
+.cond-protocol-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-primary-green);
+  margin-top: -15px;
+  line-height: 1.25;
+}
+
+.cond-protocol-callout {
+  background-color: var(--e-global-color-white);
+  border-left: 5px solid var(--e-global-color-primary-green);
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.cond-protocol-callout h2 {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  line-height: 1.3;
+}
+
+.cond-protocol-callout-divider {
+  width: 98%;
+  height: 1px;
+  background-color: var(--e-global-color-divider-muted);
+}
+
+.cond-protocol-callout p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-navy);
+  line-height: 1.65;
+}
+
+/* Section 5: Clinical Pillars of Our Approach */
+.cond-pillars {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #FFFFFF 50%, #E8ECEF 90%);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.cond-pillars-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  margin-bottom: 25px;
+}
+
+.cond-pillars-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-navy);
+  width: 80%;
+  max-width: 80%;
+  margin: -10px auto 30px;
+  line-height: 1.7;
+}
+
+.cond-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.cond-pillar-card {
+  background-color: var(--e-global-color-light-gray);
+  border-radius: 20px;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.cond-pillar-num {
+  font-family: var(--font-family-primary);
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.cond-pillar-heading {
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.cond-pillar-card p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+/* Condition FAQ 70% width matching Elementor */
+.cond-faq-accordion {
+  width: 70%;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+/* Section 7: Condition Bottom CTA */
+.cond-cta {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.cond-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.cond-cta-title {
+  font-family: var(--font-family-primary);
+  font-size: 38px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  line-height: 1.25;
+}
+
+.cond-cta-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* --- 18B. SERVICE PAGES (Exact 1:1 Elementor 239, 255, 257, 259, 262) --- */
+.svc-intro {
+  background-color: var(--e-global-color-light-gray);
+  padding: 120px 0;
+}
+
+.svc-intro-center {
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.svc-intro-2col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.svc-intro-col55 {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.svc-intro-col45 {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Section 3: Why Standard Model Fails (White Background, 2-Column) */
+.svc-problem {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+}
+
+.svc-problem-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.svc-problem-left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.svc-problem-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.svc-problem-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.svc-problem-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.svc-problem-callout {
+  border-left: 5px solid var(--e-global-color-primary-green);
+  padding: 5px 0 5px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.svc-problem-callout h5 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--e-global-color-navy);
+}
+
+.svc-problem-callout p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.6;
+}
+
+/* Section 4: Gold Radial Gradient Framework / Pillars Section */
+.svc-framework {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, var(--e-global-color-gold-light) 50%, var(--e-global-color-gold-dark) 90%);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.svc-framework-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.svc-framework-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  line-height: 1.25;
+}
+
+.svc-framework-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto 10px;
+  line-height: 1.65;
+}
+
+.svc-framework-lead a {
+  color: var(--e-global-color-white);
+  text-decoration: underline;
+}
+
+.svc-framework-sub {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-global-color-white);
+  margin-top: 5px;
+}
+
+.svc-framework-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.svc-framework-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.svc-framework-card {
+  background-color: var(--e-global-color-light-gray);
+  border-bottom: 5px solid var(--e-global-color-primary-green);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.45);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.svc-framework-grid-4 .svc-framework-card {
+  padding: 35px 22px;
+}
+
+.svc-framework-num {
+  font-family: var(--font-family-primary);
+  font-size: 45px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  line-height: 1.1;
+}
+
+.svc-framework-card h3 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-global-color-gold);
+  line-height: 1.35;
+}
+
+.svc-framework-card p {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+.svc-framework-card a {
+  color: var(--e-global-color-primary-green);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Section 5: Why We Succeed / Checkmark Cards (White Background) */
+.svc-checks {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.svc-checks-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.svc-checks-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+}
+
+.svc-checks-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto 10px;
+  line-height: 1.65;
+}
+
+.svc-checks-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.svc-checks-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.svc-check-card {
+  background-color: var(--e-global-color-white);
+  border: 1px solid var(--e-global-color-light-gray);
+  border-radius: 5px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  padding: 40px 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  gap: 12px;
+}
+
+.svc-checks-grid-4 .svc-check-card {
+  padding: 25px 20px;
+}
+
+.svc-check-icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.svc-check-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--e-global-color-primary-green);
+}
+
+.svc-check-text {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.6;
+}
+
+.svc-checks-grid-4 .svc-check-text {
+  font-size: 15px;
+}
+
+.svc-cta-lead a {
+  color: var(--e-global-color-gold);
+  text-decoration: underline;
+}
+
+/* --- 18C. PIR TREATMENT PAGE (Elementor 22) & ABOUT US PAGE (Elementor 26) --- */
+/* PIR Hero (Elementor 0f65c32) */
+.pir-page-hero {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  min-height: 645px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.pir-hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.pir-hero-left {
+  width: 50%;
+  padding-left: 39px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.pir-hero-sub {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  font-style: italic;
+  color: #747F90;
+  line-height: 1;
+  margin: 0 0 -15px 0;
+}
+
+.pir-hero-main {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--e-global-color-white);
+  line-height: 1;
+  margin: 0 0 -15px 0;
+}
+
+.pir-hero-highlight {
+  font-family: var(--font-family-primary);
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--e-global-color-gold);
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-hero-lead {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pir-hero-btn-wrap {
+  margin: 10px 0 0 0;
+}
+
+.pir-hero-trust {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  margin: 0 0 -8px 0;
+}
+
+.pir-hero-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 7px;
+  text-align: center;
+}
+
+.pir-hero-img {
+  width: 53%;
+  max-width: 75%;
+  height: auto;
+  border: 1px solid #FFFFFF40;
+  border-radius: 40px;
+  box-shadow: 0 0 60px 10px rgba(16, 185, 129, 0.4);
+  margin: 0 auto;
+}
+
+/* PIR Section 2: Extinguishing The Fire At The Source (Elementor b6d9d64) */
+.pir-source-section {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+}
+
+.pir-source-center {
+  width: 68%;
+  max-width: 68%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pir-heading-24-navy {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-heading-32-green {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-primary-green);
+  text-align: center;
+  margin: -15px 0 0 0;
+  line-height: 1;
+}
+
+.pir-source-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  text-align: left;
+  width: 100%;
+  line-height: 1.5;
+  margin: 0 0 14px 0;
+}
+
+.pir-source-callouts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pir-callout-box {
+  border-left: 5px solid var(--e-global-color-primary-green);
+  padding: 5px 0 5px 20px;
+  margin: 0 0 10px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: left;
+}
+
+.pir-callout-box h5 {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-style: normal;
+  line-height: 16px;
+  color: var(--e-global-color-navy);
+  margin: 0;
+}
+
+.pir-callout-box div {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.5;
+}
+
+/* PIR Section 3: The Science of the Pulse (Elementor 03cbc06) */
+.pir-pulse-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: 120px 0;
+}
+
+.pir-pulse-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.pir-pulse-left {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.pir-pulse-left .pir-heading-24-navy,
+.pir-pulse-left .pir-heading-32-green {
+  text-align: left;
+}
+
+.pir-pulse-body {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.5;
+}
+
+.pir-pulse-body p {
+  margin: 0 0 14.4px 0;
+}
+
+.pir-pulse-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pir-pulse-body a {
+  color: #c36;
+  text-decoration: none;
+}
+
+.pir-pulse-body a:hover {
+  color: #336;
+}
+
+.pir-pulse-gold-text {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-gold);
+  line-height: 1.5;
+}
+
+.pir-pulse-right {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.pir-framed-img {
+  width: 95%;
+  max-width: 95%;
+  height: auto;
+  border: 1px solid #FFFFFF29;
+  border-radius: 40px;
+  box-shadow: 0 0 30px 0 #4F6841;
+  margin: 0 auto;
+}
+
+/* PIR Section 4: Clinical Outcomes of Resensitization (Elementor c4e19cb) */
+.pir-outcomes-section {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, var(--e-global-color-gold-light) 50%, var(--e-global-color-gold-dark) 90%);
+  padding: 120px 0;
+  text-align: center;
+}
+
+.pir-outcomes-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pir-outcomes-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  margin: 0;
+  line-height: 1;
+}
+
+.pir-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 10px;
+}
+
+.pir-outcome-card {
+  background-color: var(--e-global-color-light-gray);
+  border-radius: 20px;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.pir-outcome-stat {
+  font-family: var(--font-family-primary);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-outcome-label {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-stat-navy {
+  color: var(--e-global-color-navy);
+}
+
+.pir-stat-green {
+  color: var(--e-global-color-primary-green);
+}
+
+.pir-stat-gold {
+  color: var(--e-global-color-gold);
+}
+
+.pir-outcome-desc {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pir-outcome-desc a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.pir-outcome-desc a.pir-blood-sugar-link {
+  color: #c36;
+  text-decoration: none;
+}
+
+/* PIR Section 5: How is the PIR Protocol different (Elementor 4f69cc1) */
+.pir-diff-section {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+}
+
+.pir-diff-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pir-diff-title {
+  font-family: "Roboto", var(--font-family-primary), sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-diff-body {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.pir-diff-body p {
+  margin: 0 0 14.4px 0;
+}
+
+.pir-diff-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pir-diff-body a {
+  color: #333333;
+  text-decoration: none;
+}
+
+/* PIR Section 6: What to Expect During Your Session (Elementor fe2b7aa) */
+.pir-expect-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: 120px 0;
+}
+
+.pir-expect-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  text-align: left;
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-expect-list {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.pir-expect-list li {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.5;
+}
+
+.pir-expect-list li:not(:last-child) {
+  padding-bottom: 10px;
+}
+
+.pir-expect-list li:not(:first-child) {
+  margin-top: 10px;
+}
+
+.pir-expect-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.pir-expect-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--e-global-color-primary-green);
+}
+
+/* PIR Section 7: Bottom Conversion CTA (Elementor 7df7592) */
+.pir-cta-section {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  min-height: 400px;
+  padding: 120px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pir-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pir-cta-title {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  line-height: 1;
+  margin: 0;
+}
+
+.pir-cta-lead {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-light-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pir-cta-btn-wrap {
+  margin: 10px 0 0 0;
+}
+
+/* About Us Page (Elementor 26) */
+.about-hero {
+  background-color: transparent;
+  background-image: radial-gradient(at center center, #233A5D 50%, #0F1929 90%);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.about-hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-hero-title {
+  font-family: var(--font-family-primary);
+  font-size: 60px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-white);
+  line-height: 1.2;
+}
+
+.about-hero-sub {
+  font-family: var(--font-family-primary);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  line-height: 1.5;
+}
+
+.about-hero-img {
+  width: 75%;
+  max-width: 85%;
+  height: auto;
+  border: 1px solid #FFFFFF29;
+  border-radius: 40px;
+  box-shadow: 0 0 50px 0 #4F6841;
+  margin-top: 10px;
+}
+
+/* About Section 2: Our Mission (Elementor 73772e00) */
+.about-mission-section {
+  background-color: var(--e-global-color-light-gray);
+  padding: 120px 0;
+}
+
+.about-mission-center {
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-eyebrow {
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-gold);
+  margin-bottom: -10px;
+}
+
+.about-heading-32 {
+  font-family: var(--font-family-primary);
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+}
+
+.about-dropcap-p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+  text-align: left;
+}
+
+.about-dropcap-letter {
+  float: left;
+  font-family: var(--font-family-faq);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--e-global-color-gold);
+  margin-right: 10px;
+}
+
+.about-mission-card {
+  background-color: var(--e-global-color-white);
+  border-radius: 20px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-mission-card p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+.about-mission-card a {
+  color: var(--e-global-color-primary-green);
+  text-decoration: underline;
+}
+
+/* About Section 3: Meet Your Clinical Partners (Elementor 616e8fe) */
+.about-team-section {
+  background-color: var(--e-global-color-white);
+  padding: 120px 0;
+}
+
+.about-team-header {
+  text-align: center;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.about-team-card {
+  border: 1px solid var(--e-global-color-light-gray);
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.about-team-figure {
+  width: 100%;
+  margin: 0;
+}
+
+.about-team-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.about-team-name {
+  font-family: var(--font-family-primary);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  margin-top: 5px;
+}
+
+.about-team-role {
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--e-global-color-gold);
+  margin-top: -8px;
+}
+
+.about-team-bio {
+  font-family: var(--font-family-faq);
+  font-size: 14px;
+  font-weight: 400;
+  color: #272727;
+  line-height: 1.65;
+}
+
+.about-cta-subnote {
+  font-family: var(--font-family-primary);
+  font-size: 15px;
+  font-weight: 400;
+  color: #F8F9FA5E;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* --- 18D. CONTACT PAGE (Elementor 28: contact-glendale-functional-medicine-pcp) --- */
+/* Contact Hero (Elementor b9fc39f) */
+.contact-hero {
+  position: relative;
+  min-height: 500px;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--e-global-color-navy);
+  background-image: url('/assets/images/healthcare-hero-hp.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--e-global-color-navy);
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.contact-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contact-hero-title {
+  font-family: var(--font-family-primary);
+  font-size: 65px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--e-global-color-gold);
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-hero-sub {
+  font-family: var(--font-family-primary);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--e-global-color-white);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+.contact-hero-sub p {
+  margin: 0;
+}
+
+.contact-hero-sub a {
+  color: #c36;
+  text-decoration: none;
+}
+
+.contact-hero-sub a:hover {
+  color: #336;
+}
+
+/* Contact Section 2: Clinic Info + Forminator Card (Elementor 8533b62) */
+.contact-main-section {
+  background-color: var(--e-global-color-white);
+  padding: 80px 40px;
+}
+
+.contact-main-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.contact-left-col {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-clinic-heading {
+  font-family: var(--font-family-primary);
+  font-size: 28px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--e-global-color-navy);
+  text-align: left;
+  line-height: 1;
+  margin: 0 0 10px 0;
+}
+
+.contact-details-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 10px 100px 10px 2px;
+}
+
+.contact-phone-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 100px 15px 2px;
+}
+
+.contact-icon-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: 15px;
+}
+
+.contact-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF9F0;
+  color: var(--e-global-color-gold);
+  fill: var(--e-global-color-gold);
+  border-radius: 10px;
+  padding: 12.5px;
+  line-height: 0;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.contact-icon-badge.phone-icon svg {
+  width: 25px;
+  height: 25px;
+  fill: var(--e-global-color-gold);
+}
+
+.contact-icon-badge.pin-icon svg,
+.contact-icon-badge.clock-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--e-global-color-gold);
+}
+
+.contact-icon-content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.contact-icon-title {
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 9px;
+  color: var(--e-global-color-gold);
+  margin: 8px 0 12px 0;
+  transition: color 0.2s ease;
+}
+
+.contact-icon-title a {
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-family-primary);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 9px;
+}
+
+.contact-icon-box:hover .contact-icon-title,
+.contact-icon-box:focus-within .contact-icon-title {
+  color: var(--e-global-color-navy);
+}
+
+.contact-phone-desc {
+  font-family: var(--font-family-primary);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #54595F;
+  margin: 0;
+}
+
+.contact-info-desc {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #54595F;
+  margin: 0;
+}
+
+.contact-subnote {
+  margin: 0 0 18px 60px;
+  padding: 5px 0 0 8px;
+  font-family: var(--font-family-primary);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--e-global-color-text-body);
+}
+
+.contact-subnote p {
+  margin: 0;
+}
+
+.contact-subnote:last-child {
+  margin-bottom: 0;
+}
+
+.contact-map-wrap {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.contact-map-embed {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.contact-map-embed iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 10px;
+}
+
+/* Contact Right Column: Forminator Form 199 Card (Elementor 792fc1a / 64fb025) */
+.contact-right-col {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-card {
+  background-color: var(--e-global-color-white);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.contact-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form-row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.contact-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form-label {
+  font-family: "Rubik", var(--font-family-primary), sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 1.4;
+}
+
+.contact-form-required {
+  color: #E51919;
+}
+
+.contact-form-input,
+.contact-form-select,
+.contact-form-textarea {
+  width: 100%;
+  font-family: "Rubik", var(--font-family-primary), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #777771;
+  border-radius: 2px;
+  padding: 10px 12px;
+  transition: border-color 0.2s ease, outline 0.2s ease;
+}
+
+.contact-form-input::placeholder,
+.contact-form-textarea::placeholder {
+  color: #666666;
+}
+
+.contact-form-input:hover,
+.contact-form-select:hover,
+.contact-form-textarea:hover {
+  border-color: var(--e-global-color-gold);
+}
+
+.contact-form-input:focus,
+.contact-form-select:focus,
+.contact-form-textarea:focus {
+  border-color: var(--e-global-color-gold);
+  outline: 2px solid var(--e-global-color-gold);
+  outline-offset: 1px;
+}
+
+.contact-form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-checkbox-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: "Rubik", var(--font-family-primary), sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.contact-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #097BAA;
+  border: 1px solid #777771;
+  background-color: #EDEDED;
+  cursor: pointer;
+}
+
+.contact-legal-html {
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.4;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.contact-legal-html a {
+  color: #0073aa;
+  text-decoration: underline;
+}
+
+.contact-submit-btn {
+  display: inline-block;
+  font-family: "Rubik", var(--font-family-primary), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--e-global-color-primary-green);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-self: flex-start;
+}
+
+.contact-submit-btn:hover,
+.contact-submit-btn:focus,
+.contact-submit-btn:active {
+  background-color: var(--e-global-color-navy);
+  color: #FFFFFF;
+}
+
+/* --- 18E. LEGAL PAGES (Privacy Policy & Terms and Conditions) --- */
+.legal-page-section {
+  background-color: var(--e-global-color-white);
+  padding: 60px 0 80px 0;
+}
+
+.legal-page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.legal-page-container h1 {
+  font-family: var(--font-family-primary);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--e-global-color-navy);
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.legal-page-container h3 {
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  line-height: 1.3;
+  margin-top: 10px;
+}
+
+.legal-page-container h6 {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--e-global-color-navy);
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.legal-page-container p {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--e-global-color-text-body);
+  line-height: 1.65;
+}
+
+.legal-page-container a {
+  color: var(--e-global-color-primary-green);
+  text-decoration: underline;
+}
+
+/* --- 19. RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .doctor-grid,
+  .pir-grid,
+  .cond-perspectives-2col,
+  .cond-protocol-row,
+  .svc-intro-2col,
+  .svc-problem-row,
+  .pir-hero-grid,
+  .pir-pulse-row,
+  .contact-main-inner {
+    flex-direction: column;
+  }
+
+  .hero-content,
+  .hero-image-wrapper,
+  .sick-care-column,
+  .doctor-image-col,
+  .doctor-content-col,
+  .pir-left-col,
+  .pir-right-col,
+  .cond-perspectives-center,
+  .cond-perspectives-col50,
+  .cond-protocol-left,
+  .cond-protocol-right,
+  .cond-faq-accordion,
+  .cond-hero-subtitle,
+  .cond-hero-title,
+  .cond-hero-img,
+  .svc-intro-center,
+  .svc-intro-col55,
+  .svc-intro-col45,
+  .svc-problem-left,
+  .svc-problem-right,
+  .svc-framework-lead,
+  .svc-checks-lead,
+  .pir-hero-left,
+  .pir-hero-right,
+  .pir-hero-img,
+  .pir-source-center,
+  .pir-pulse-left,
+  .pir-pulse-right,
+  .pir-framed-img,
+  .about-hero-img,
+  .about-mission-center,
+  .contact-left-col,
+  .contact-right-col {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .method-grid,
+  .conditions-grid,
+  .cond-diabetes-bottom-grid,
+  .svc-framework-grid-4,
+  .svc-checks-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid,
+  .reviews-grid,
+  .footer-grid,
+  .cond-limitations-grid,
+  .cond-pillars-grid,
+  .svc-framework-grid-3,
+  .svc-checks-grid-3,
+  .pir-outcomes-grid,
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  .site-header {
+    height: 70px;
+  }
+
+  .site-logo img {
+    height: 44px;
+  }
+
+  .btn-header-phone {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .site-nav,
+  .btn-header-schedule {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    padding: 6px;
+    color: var(--e-global-color-primary-green);
+  }
+
+  /* Mobile Navigation Drawer Dropdown */
+  .site-nav.is-open {
+    display: flex !important;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--e-global-color-white);
+    padding: 20px 24px 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid var(--e-global-color-light-gray);
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 1000;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .site-nav.is-open .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .site-nav.is-open .nav-item {
+    width: 100%;
+    border-bottom: 1px solid var(--e-global-color-light-gray);
+  }
+
+  .site-nav.is-open .nav-link {
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 600;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .site-nav.is-open .dropdown-menu {
+    position: static;
+    width: 100%;
+    background-color: #F4F6F4;
+    border-radius: 6px;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-bottom: 12px;
+    display: none;
+  }
+
+  .site-nav.is-open .dropdown-menu.is-active {
+    display: block;
+  }
+
+  .site-nav.is-open .dropdown-link {
+    color: var(--e-global-color-navy);
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .site-nav.is-open .dropdown-link:hover,
+  .site-nav.is-open .dropdown-link.active {
+    color: var(--e-global-color-primary-green);
+    font-weight: 600;
+  }
+
+  /* Section Top/Bottom Padding Normalization */
+  section,
+  .sick-care-trap,
+  .kickstart-method,
+  .partner-health,
+  .conditions-section,
+  .steps-section,
+  .pir-section,
+  .reviews-section,
+  .faq-section,
+  .final-cta,
+  .cond-hero,
+  .cond-perspectives,
+  .cond-limitations,
+  .cond-protocol,
+  .cond-pillars,
+  .cond-cta,
+  .svc-intro,
+  .svc-problem,
+  .svc-framework,
+  .svc-checks,
+  .pir-page-hero,
+  .pir-outcomes-section,
+  .pir-diff-section,
+  .pir-expect-section,
+  .about-hero,
+  .about-mission-section,
+  .about-team-section,
+  .contact-main-section,
+  .legal-page-section {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .cond-hero,
+  .about-hero {
+    min-height: auto !important;
+    padding-top: 40px !important;
+    padding-bottom: 45px !important;
+  }
+
+  .pir-page-hero {
+    min-height: auto !important;
+    padding: 40px 0 !important;
+  }
+
+  /* Typography Tuning for Small Screens */
+  .hero-title-sub,
+  .hero-title-main,
+  .hero-title-highlight,
+  .pir-hero-sub,
+  .pir-hero-main,
+  .pir-hero-highlight,
+  .cond-hero-title,
+  .about-hero-title {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .cond-hero-subtitle {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .pir-hero-left {
+    padding-left: 0 !important;
+    width: 100% !important;
+    text-align: center;
+    align-items: center;
+  }
+
+  .pir-hero-right {
+    width: 100% !important;
+    padding-right: 0 !important;
+    margin-top: 25px;
+  }
+
+  .pir-hero-sub,
+  .pir-hero-main,
+  .pir-hero-highlight {
+    font-size: 36px !important;
+  }
+
+  .hero-lead,
+  .pir-hero-lead {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+  }
+
+  .sick-care-heading,
+  .method-section-title,
+  .doctor-heading,
+  .conditions-header h1,
+  .steps-section-title,
+  .pir-heading-navy,
+  .pir-heading-green,
+  .reviews-section-title,
+  .faq-section-title,
+  .cond-perspectives-heading,
+  .cond-limitations-title,
+  .cond-protocol-title,
+  .cond-pillars-title,
+  .cond-cta-title,
+  .svc-problem-title,
+  .svc-framework-title,
+  .svc-checks-title,
+  .pir-heading-32-green,
+  .pir-outcomes-title,
+  .pir-diff-title,
+  .pir-expect-title,
+  .about-heading-32,
+  .legal-page-container h1 {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+  }
+
+  .final-cta-container h1 {
+    font-size: 26px !important;
+    text-align: center;
+  }
+
+  .final-cta-container p {
+    font-size: 16px !important;
+    max-width: 100% !important;
+    text-align: center;
+  }
+
+  /* Button Touch Targets */
+  .btn-signature {
+    font-size: 15px !important;
+    padding: 18px 16px !important;
+    width: 100% !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+  }
+
+  /* Images Mobile Borders & Sizing */
+  .cond-hero-img-wrap {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 15px 0 !important;
+  }
+
+  .cond-hero-img,
+  .cond-hero-img.w-100,
+  .cond-hero-img.w-92,
+  .cond-hero-img.w-88,
+  .cond-hero-img.w-70,
+  .about-hero-img,
+  .pir-hero-img,
+  .pir-framed-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 20px !important;
+    border-width: 4px !important;
+  }
+
+  /* Card Padding Normalization */
+  .method-card,
+  .doctor-card,
+  .condition-card,
+  .step-card,
+  .pir-right-card,
+  .pir-outcome-card,
+  .cond-elevated-card,
+  .cond-pillar-card,
+  .svc-framework-card,
+  .svc-check-card,
+  .about-mission-card,
+  .about-team-card,
+  .contact-form-card {
+    padding: 24px 18px !important;
+  }
+
+  .modal-card {
+    padding: 25px 18px !important;
+    max-height: 94vh;
+  }
+
+  .modal-card h3 {
+    font-size: 20px !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Two Column Forms to Single Column on Mobile */
+  .form-row-2,
+  .contact-form-row-2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  /* Footer Layout on Mobile */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  .footer-policy-menu {
+    gap: 15px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Map Heights */
+  .footer-map-wrapper iframe,
+  .contact-map-embed iframe {
+    height: 220px !important;
+  }
+}
