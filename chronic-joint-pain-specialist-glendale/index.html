@@ -117,6 +117,7 @@
   </script>
   <!-- Schema.org Structured Data (Rank Math JSON-LD 1:1) -->
   <script type="application/ld+json" class="rank-math-schema">{"@context": "https://schema.org", "@graph": [{"@type": "Place", "@id": "https://kickstartprimarycare.com/#place", "geo": {"@type": "GeoCoordinates", "latitude": "33.654853", "longitude": "-112.197779"}, "hasMap": "https://www.google.com/maps/search/?api=1&query=33.654853,-112.197779", "address": {"@type": "PostalAddress", "streetAddress": "6320 W Union Hills Dr, Bldg B, Ste 1500", "addressLocality": "Glendale", "addressRegion": "Arizona", "postalCode": "85308"}}, {"@type": ["Physician", "MedicalBusiness", "Organization"], "@id": "https://kickstartprimarycare.com/#organization", "name": "KickStart Functional Primary Care", "url": "https://kickstartprimarycare.com", "sameAs": ["https://www.facebook.com/KickStartPrimaryCare", "https://www.instagram.com/kickstartprimarycare/"], "address": {"@type": "PostalAddress", "streetAddress": "6320 W Union Hills Dr, Bldg B, Ste 1500", "addressLocality": "Glendale", "addressRegion": "Arizona", "postalCode": "85308"}, "logo": {"@type": "ImageObject", "@id": "https://kickstartprimarycare.com/#logo", "url": "https://kickstartprimarycare.com/assets/images/logo.png", "contentUrl": "https://kickstartprimarycare.com/assets/images/logo.png", "caption": "KickStart Functional Primary Care", "inLanguage": "en-US", "width": "300", "height": "139"}, "openingHours": ["Mo,Tu,We,Th,Fr 09:00-18:00"], "location": {"@id": "https://kickstartprimarycare.com/#place"}, "image": {"@id": "https://kickstartprimarycare.com/#logo"}, "telephone": "+1-623-624-8011"}, {"@type": "WebSite", "@id": "https://kickstartprimarycare.com/#website", "url": "https://kickstartprimarycare.com", "name": "KickStart Functional Primary Care", "alternateName": "KickStart Glendale", "publisher": {"@id": "https://kickstartprimarycare.com/#organization"}, "inLanguage": "en-US"}, {"@type": "WebPage", "@id": "https://kickstartprimarycare.com/chronic-joint-pain-specialist-glendale/#webpage", "url": "https://kickstartprimarycare.com/chronic-joint-pain-specialist-glendale/", "name": "Chronic Joint Pain Specialist Glendale | Arthritis & Mobility", "description": "Stop masking joint pain with cortisone and NSAIDs. Our Glendale clinic treats the systemic inflammatory drivers of arthritis and chronic joint pain.", "about": {"@id": "https://kickstartprimarycare.com/#organization"}, "isPartOf": {"@id": "https://kickstartprimarycare.com/#website"}, "inLanguage": "en-US"}]}</script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -466,7 +467,13 @@
       <button class="modal-close-btn" id="modal-close-trigger" aria-label="Close this module" type="button">&times;</button>
       <h3 id="modal-title">BEGIN YOUR RESTORATION</h3>
 
-      <form id="consultation-form" action="https://hook.us1.make.com/gvci47v65434cdiq95mwojld43bdyj3j" method="POST" enctype="multipart/form-data">
+      <form id="consultation-form" action="#" method="POST" enctype="multipart/form-data">
+        <!-- Anti-Spam Honeypot & Verification -->
+        <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; height: 0; width: 0; overflow: hidden;" aria-hidden="true" tabindex="-1">
+          <label for="consultation-hp-field">Clinic Reference Code</label>
+          <input type="text" id="consultation-hp-field" name="clinic_ref_code" autocomplete="off" tabindex="-1">
+        </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAACgEERb3cIvc-Qbk" data-size="invisible"></div>
         <div class="form-row-2">
           <div class="form-group">
             <label for="first-name">First Name <span class="req">*</span></label>
