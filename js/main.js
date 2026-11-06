@@ -1,11 +1,11 @@
 /**
  * KICKSTART FUNCTIONAL PRIMARY CARE
  * Master Controller: FAQ Accordion, Modal Dialog, Navigation, Form Handling
- * Enhanced Anti-Spam Protection Engine (Honeypot, Speed-Trap, Pattern Validation, Turnstile)
+ * Enhanced Anti-Spam & Strict Field Validation Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Track page load time for speed-trap heuristic (minimum 2.5 seconds to fill out)
+  // Track page load time for speed-trap heuristic (minimum 1.5 seconds)
   const pageLoadedAt = Date.now();
   let formFirstInteractionAt = null;
 
@@ -92,39 +92,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- ANTI-SPAM VALIDATION HEURISTIC ENGINE ---
-  function validateSubmissionAuthenticity(firstName, lastName, phone, honeypotVal, startedTime) {
-    // 1. Honeypot check (hidden input must remain completely empty)
+  // --- ANTI-SPAM & MANDATORY FIELD INTEGRITY VALIDATOR ---
+  function validateSubmissionAuthenticity(firstName, lastName, email, phone, honeypotVal, startedTime) {
+    // 1. Mandatory field existence check (Zero blank leads allowed)
+    const cleanFirst = (firstName || '').trim();
+    const cleanLast = (lastName || '').trim();
+    const cleanEmail = (email || '').trim();
+    const rawPhone = (phone || '').trim();
+    const cleanPhone = rawPhone.replace(/\D/g, '');
+
+    if (!cleanFirst || !cleanLast || !cleanEmail || !cleanPhone) {
+      console.warn('Spam trap triggered: missing core required fields (First, Last, Email, or Phone).');
+      return false;
+    }
+
+    // Email basic syntax check
+    if (!cleanEmail.includes('@') || !cleanEmail.includes('.')) {
+      console.warn('Spam trap triggered: invalid email format.');
+      return false;
+    }
+
+    // 2. Honeypot check (hidden input must remain completely empty)
     if (honeypotVal && honeypotVal.trim().length > 0) {
       console.warn('Spam trap triggered: honeypot populated.');
       return false;
     }
 
-    // 2. Speed-trap check (headless bots submit in under 1.5 seconds)
+    // 3. Speed-trap check (headless bots submit in under 1.5 seconds)
     const elapsed = Date.now() - (startedTime || formFirstInteractionAt || pageLoadedAt);
     if (elapsed < 1500) {
       console.warn('Spam trap triggered: submission completed unnaturally fast (' + elapsed + 'ms).');
       return false;
     }
 
-    // 3. Name digit check (human names never contain numbers like '7q72ay9tv' or 'pyvm98')
+    // 4. Name digit check (human names never contain numbers like '7q72ay9tv' or 'pyvm98')
     const digitRegex = /\d/;
-    if (digitRegex.test(firstName) || digitRegex.test(lastName)) {
+    if (digitRegex.test(cleanFirst) || digitRegex.test(cleanLast)) {
       console.warn('Spam trap triggered: digits detected in name fields.');
       return false;
     }
 
-    // 4. Phone length check (valid US phone numbers have 10 digits, or 11 starting with 1)
-    const cleanPhone = (phone || '').replace(/\D/g, '');
-    if (cleanPhone.length > 0) {
-      if (cleanPhone.length < 10 || cleanPhone.length > 11) {
-        console.warn('Spam trap triggered: invalid phone digit length (' + cleanPhone.length + ').');
-        return false;
-      }
-      if (cleanPhone.length === 11 && !cleanPhone.startsWith('1')) {
-        console.warn('Spam trap triggered: 11-digit non-US phone format.');
-        return false;
-      }
+    // 5. Phone length check (valid US phone numbers have 10 digits, or 11 starting with 1)
+    if (cleanPhone.length < 10 || cleanPhone.length > 11) {
+      console.warn('Spam trap triggered: invalid phone digit length (' + cleanPhone.length + ').');
+      return false;
+    }
+    if (cleanPhone.length === 11 && !cleanPhone.startsWith('1')) {
+      console.warn('Spam trap triggered: 11-digit non-US phone format.');
+      return false;
     }
 
     return true;
@@ -149,11 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const insuranceProvider = formData.get('text-1') || '';
       const honeypotVal = formData.get('clinic_ref_code') || '';
 
-      // Check anti-spam heuristics
-      const isAuthentic = validateSubmissionAuthenticity(firstName, lastName, phone, honeypotVal, modalOpenedAt);
+      // Check anti-spam & mandatory fields
+      const isAuthentic = validateSubmissionAuthenticity(firstName, lastName, email, phone, honeypotVal, modalOpenedAt);
 
       if (!isAuthentic) {
-        // Silently drop the spam bot: show success screen so bot departs without retrying or burning Make credits
+        // Silently drop the spam bot: show fake success screen so bot departs without retrying or burning Make credits
         form.innerHTML = `
           <div style="text-align: center; padding: 25px 0;">
             <div style="width: 50px; height: 50px; background-color: #4F6841; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 15px;">&#10003;</div>
@@ -267,8 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const details = formData.get('textarea-1') || '';
       const honeypotVal = formData.get('office_internal_code') || '';
 
-      // Check anti-spam heuristics
-      const isAuthentic = validateSubmissionAuthenticity(firstName, lastName, phone, honeypotVal, formFirstInteractionAt);
+      // Check anti-spam & mandatory fields
+      const isAuthentic = validateSubmissionAuthenticity(firstName, lastName, email, phone, honeypotVal, formFirstInteractionAt);
 
       if (!isAuthentic) {
         contactPageForm.innerHTML = `
